@@ -19,6 +19,7 @@ from subprocess import call
 import os
 import platform
 import requests
+import glob
 
 VERSION = "0.0.1"
 
@@ -29,38 +30,47 @@ MAC_URL      = "https://github.com/uwplse/lean-nightly/blob/gh-pages/build/lean-
 LEAN_ZIP     = "lean.zip"
 LEAN_INSTALL = "lean_install"
 
-def unzip(zip, output):
-    call(["unzip", zip])
-    call(["mv", LEAN_ZIP, LEAN_INSTALL])
-
-def main(args):
-    print("Hello!")
+user_platform = None
+def detect_platform():
     sys = platform.system()
 
-    url = None
     if sys == "Darwin":
-        url = MAC_URL
+        user_platform = MAC_URL
     elif sys == "Windows":
-        url = WINDOWS_URL
+        user_platform = WINDOWS_URL
     elif sys == "Linux":
-        url = LINUX_URL
+        user_platform = LINUX_URL
     else:
         print("unknown platform: {0}".format(sys))
         exit(0)
+
+def unzip(zip, output):
+    call(["unzip", zip])
+    nightly = glob.glob("lean-nightly*")
+    call(["mv", nightly[0], LEAN_INSTALL])
+
+def lean_executable_name():
+    return "lean"
+
+def main(args):
+    detect_platform()
+
+    print("Downloading new version of Lean ... ")
 
     request = requests.get(url)
 
     with open(LEAN_ZIP, 'wb') as f:
         f.write(request.content)
 
+    print ("Unpacking Lean ... ")
+
     unzip(LEAN_ZIP, "lean_installation")
 
-    lean_path = os.path.join(os.getcwd(), LEAN)
+    lean_path = os.path.join(os.getcwd(), LEAN_INSTALL, "bin", lean_executable_name())
 
-    print("Please set your VSCode path: {0}".format(lean_path))
+    print("Note: Please set your VSCode lean.executablePath to `{0}`".format(lean_path))
 
-    print("installed")
-
+    print("Lean Sucessfully Installed.")
 
 if __name__ == "__main__":
     arguments = docopt(__doc__, version='leanup {0}'.format(VERSION))
