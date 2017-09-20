@@ -5,6 +5,7 @@ verify_ssl = true
 [packages]
 docopt = "*"
 requests = "*"
+colorama = "*"
 
 [dev-packages]
 

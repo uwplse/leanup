@@ -8,7 +8,8 @@
 |_______||_______/__/     \__\ |__| \__|     \______/  | _|.
 
 Usage:
-  leanup.py install
+  leanup.py install [path]
+  leanup.py sync
 
 Options:
   -h --help     Show this screen.
@@ -20,6 +21,8 @@ import os
 import platform
 import requests
 import glob
+from colorama import init
+init()
 
 VERSION = "0.0.1"
 
@@ -29,17 +32,21 @@ MAC_URL      = "https://github.com/uwplse/lean-nightly/blob/gh-pages/build/lean-
 
 LEAN_ZIP     = "lean.zip"
 LEAN_INSTALL = "lean_install"
+LEAN_DL_URL = None
 
-user_platform = None
+def note(msg):
+    print(Fore.YELLOW + "Note:" + msg + Style.RESET_ALL)
+
 def detect_platform():
+    global LEAN_DL_URL
     sys = platform.system()
 
     if sys == "Darwin":
-        user_platform = MAC_URL
+        LEAN_DL_URL = MAC_URL
     elif sys == "Windows":
-        user_platform = WINDOWS_URL
+        LEAN_DL_URL = WINDOWS_URL
     elif sys == "Linux":
-        user_platform = LINUX_URL
+        LEAN_DL_URL = LINUX_URL
     else:
         print("unknown platform: {0}".format(sys))
         exit(0)
@@ -52,12 +59,11 @@ def unzip(zip, output):
 def lean_executable_name():
     return "lean"
 
-def main(args):
-    detect_platform()
-
+def install(dest_path):
+    print(dest_path)
     print("Downloading new version of Lean ... ")
 
-    request = requests.get(url)
+    request = requests.get(LEAN_DL_URL)
 
     with open(LEAN_ZIP, 'wb') as f:
         f.write(request.content)
@@ -68,9 +74,20 @@ def main(args):
 
     lean_path = os.path.join(os.getcwd(), LEAN_INSTALL, "bin", lean_executable_name())
 
-    print("Note: Please set your VSCode lean.executablePath to `{0}`".format(lean_path))
+    note("Please set your VSCode lean.executablePath to `{0}`".format(lean_path))
 
     print("Lean Sucessfully Installed.")
+
+def main(args):
+    # Setup Platform specific variables.
+    detect_platform()
+
+    if args['install']:
+        install(args['path'])
+    elif args['sync']:
+        print("should implement sync")
+    else:
+        exit(1)
 
 if __name__ == "__main__":
     arguments = docopt(__doc__, version='leanup {0}'.format(VERSION))
