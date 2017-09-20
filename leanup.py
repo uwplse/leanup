@@ -46,7 +46,7 @@ def detect_platform():
 
     if sys == "Darwin":
         LEAN_DL_URL = MAC_URL
-    elif sys == "Windows":
+    elif sys == "Windows" or sys.startswith("MSYS_NT"):
         LEAN_DL_URL = WINDOWS_URL
     elif sys == "Linux":
         LEAN_DL_URL = LINUX_URL
