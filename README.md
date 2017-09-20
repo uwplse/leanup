@@ -1,15 +1,19 @@
 # Lean Up
 
-This tool is intended to help students install Lean for CSE 505.
+This tool is intended to help students install & update Lean for CSE 505.
 
-Getting set *up* with Lean takes just a few simple steps.
+This is the first version of the class we are offering written in Lean,
+and the goal of this tool is to make upgrade as seemless as possible for
+you over the course of the quarter.
 
-You need a few components on your computer to install Lean:
+### Setup
+Getting set _up_ with _Lean_ takes just a few simple steps.
 
+In order to run `leanup.py` you need a few components:
     - [Git](https://git-scm.com/)
-    - Python 3 (with `pip`), it should be installed on most Linux distros,
+    - Python 3 (with `pip`), it should be installed on most Linux distributions,
       can easily be installed on macOS with [homebrew](), and Windows instructions
-      are [here](https://docs.python.org/3/using/windows.html).
+      are [here](extras/windows_setup.md).
     - VSCode (https://code.visualstudio.com/)
 
 First clone this tool on to your computer:
@@ -17,7 +21,7 @@ First clone this tool on to your computer:
 git clone https://github.com/uwplse/leanup
 ```
 
-Then setup the tool (you will only need to do this once at the start of the class):
+Then setup the tool (you should only do this once):
 
 ```bash
 pip install pipenv
@@ -30,9 +34,15 @@ You should now be able to run:
 ./leanup.py install
 ```
 
+![Post Install](/images/post_install.png)
+
 When you are all done you should be able to open the file in `test/example.lean` and see some diagnostics.
 
 ![All Done!](/images/all_done.png)
 
 Overall this process should take no more then a few minutes, I tried it on each platform during
 the summer, drop by the Slack channel #505-au17 for questions and or help.
+
+### Use
+
+`leanup.py` has a few features ...

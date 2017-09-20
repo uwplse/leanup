@@ -38,7 +38,7 @@ def note(msg):
     print(Fore.YELLOW + "Note:" + msg + Style.RESET_ALL)
 
 def success(msg):
-    print(Fore.GREEN + "SUCCESS: " + msg + STYLE.RESET_ALL)
+    print(Fore.GREEN + "SUCCESS: " + msg + Style.RESET_ALL)
 
 def detect_platform():
     global LEAN_DL_URL
