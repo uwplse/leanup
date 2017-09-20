@@ -21,7 +21,7 @@ import os
 import platform
 import requests
 import glob
-from colorama import init
+from colorama import init, Fore, Style
 init()
 
 VERSION = "0.0.1"
@@ -36,6 +36,9 @@ LEAN_DL_URL = None
 
 def note(msg):
     print(Fore.YELLOW + "Note:" + msg + Style.RESET_ALL)
+
+def success(msg):
+    print(Fore.GREEN + "SUCCESS: " + msg + STYLE.RESET_ALL)
 
 def detect_platform():
     global LEAN_DL_URL
@@ -73,10 +76,8 @@ def install(dest_path):
     unzip(LEAN_ZIP, "lean_installation")
 
     lean_path = os.path.join(os.getcwd(), LEAN_INSTALL, "bin", lean_executable_name())
-
     note("Please set your VSCode lean.executablePath to `{0}`".format(lean_path))
-
-    print("Lean Sucessfully Installed.")
+    success("Lean Installed")
 
 def main(args):
     # Setup Platform specific variables.
