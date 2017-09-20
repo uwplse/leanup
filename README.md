@@ -10,11 +10,12 @@ you over the course of the quarter.
 Getting set _up_ with _Lean_ takes just a few simple steps.
 
 In order to run `leanup.py` you need a few components:
-    - [Git](https://git-scm.com/)
-    - Python 3 (with `pip`), it should be installed on most Linux distributions,
-      can easily be installed on macOS with [homebrew](), and Windows instructions
-      are [here](extras/windows_setup.md).
-    - VSCode (https://code.visualstudio.com/)
+
+- [Git](https://git-scm.com/)
+- Python 3 (with `pip`), it should be installed on most Linux distributions,
+  can easily be installed on macOS with [homebrew](https://brew.sh/), and Windows instructions
+  are [here](extras/windows_setup.md).
+- [VSCode](https://code.visualstudio.com/)
 
 First clone this tool on to your computer:
 ```bash
