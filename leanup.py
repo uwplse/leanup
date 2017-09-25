@@ -33,6 +33,7 @@ MAC_URL      = "https://github.com/uwplse/lean-nightly/blob/gh-pages/build/lean-
 LEAN_ZIP     = "lean.zip"
 LEAN_INSTALL = "lean_install"
 LEAN_DL_URL = None
+unarchive = None
 
 def note(msg):
     print(Fore.YELLOW + "Note:" + msg + Style.RESET_ALL)
@@ -40,21 +41,31 @@ def note(msg):
 def success(msg):
     print(Fore.GREEN + "SUCCESS: " + msg + Style.RESET_ALL)
 
+def unzip(zip):
+    call(["unzip", zip])
+
+def untar(zip):
+    call(["tar", "-xvzf", zip])
+
 def detect_platform():
     global LEAN_DL_URL
+    global unarchive
     sys = platform.system()
 
     if sys == "Darwin":
         LEAN_DL_URL = MAC_URL
+        unarchive = unzip
     elif sys == "Windows" or sys.startswith("MSYS_NT"):
         LEAN_DL_URL = WINDOWS_URL
+        unarchive = unzip
     elif sys == "Linux":
         LEAN_DL_URL = LINUX_URL
+        unarhcive = untar
     else:
         print("unknown platform: {0}".format(sys))
         exit(0)
 
-def unzip(zip, output):
+def unpack(zip, output):
     call(["unzip", zip])
     nightly = glob.glob("lean-nightly*")
     call(["mv", "-f", nightly[0], LEAN_INSTALL])
@@ -82,7 +93,7 @@ def install(dest_path=None):
 
     print ("Unpacking Lean ... ")
 
-    unzip(LEAN_ZIP, "lean_installation")
+    unpack(LEAN_ZIP, "lean_installation")
 
     lean_path = os.path.join(dest_path, LEAN_INSTALL, "bin", lean_executable_name())
     note("Please set your VSCode lean.executablePath to `{0}`".format(lean_path))
