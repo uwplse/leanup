@@ -41,6 +41,12 @@ You should now be able to run:
 
 ![Post Install](/images/post_install.png)
 
+Now copy the path provided to you by the tool since we will need it for VSCode.
+First open the `User Settings` window of VSCode (`cmd-,` or `ctrl-,` depending on platform),
+and modify the `lean.executablePath` to point to the executable provided by `leanup`.
+
+![User Settings](/images/settings.png)
+
 When you are all done you should be able to open the file in `test/example.lean` and see some diagnostics.
 
 ![All Done!](/images/all_done.png)
