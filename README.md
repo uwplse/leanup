@@ -18,7 +18,7 @@ In order to run `leanup.py` you need a few components:
 - [Git](https://git-scm.com/)
 - Python 3 (with `pip`), it should be installed on most Linux distributions,
   can easily be installed on macOS with [homebrew](https://brew.sh/), and Windows instructions
-  are [here](extras/windows_setup.md).
+  are [here](docs/windows_setup.md).
 - [VSCode](https://code.visualstudio.com/)
 
 First clone this tool on to your computer:
@@ -46,7 +46,7 @@ When you are all done you should be able to open the file in `test/example.lean`
 ![All Done!](/images/all_done.png)
 
 Overall this process should take no more then a few minutes, I tried it on each platform during
-the summer, drop by the Slack channel #505-au17 for questions and or help.
+the summer, drop by the Slack channel `#505-au17` for questions and or help.
 
 ### Use
 

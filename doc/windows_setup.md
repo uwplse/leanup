@@ -9,7 +9,7 @@ If you are lost on how to get setup I would reconmend setting up [MSYS2](http://
 Once you have it installed you can use:
 
 ```
-pacman -S git wget python
+pacman -S git wget python unzip
 wget https://bootstrap.pypa.io/get-pip.py
 python get-pip.py
 pip install pipenv

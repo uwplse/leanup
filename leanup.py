@@ -8,8 +8,8 @@
 |_______||_______/__/     \__\ |__| \__|     \______/  | _|.
 
 Usage:
-  leanup.py install [path]
-  leanup.py sync
+  leanup.py install [PATH]
+  leanup.py sync [PATH]
 
 Options:
   -h --help     Show this screen.
@@ -57,36 +57,46 @@ def detect_platform():
 def unzip(zip, output):
     call(["unzip", zip])
     nightly = glob.glob("lean-nightly*")
-    call(["mv", nightly[0], LEAN_INSTALL])
+    call(["mv", "-f", nightly[0], LEAN_INSTALL])
 
 def lean_executable_name():
     return "lean"
 
-def install(dest_path):
+def clean(path):
+    call(["rm", "-r", os.path.join(path, LEAN_ZIP)])
+
+def install(dest_path=None):
+    if dest_path is None:
+        dest_path = os.getcwd()
+    else:
+        dest_path = os.path.join(os.getcwd(), dest_path)
+
     print(dest_path)
+
     print("Downloading new version of Lean ... ")
 
     request = requests.get(LEAN_DL_URL)
 
-    with open(LEAN_ZIP, 'wb') as f:
+    with open(os.path.join(dest_path, LEAN_ZIP), 'wb') as f:
         f.write(request.content)
 
     print ("Unpacking Lean ... ")
 
     unzip(LEAN_ZIP, "lean_installation")
 
-    lean_path = os.path.join(os.getcwd(), LEAN_INSTALL, "bin", lean_executable_name())
+    lean_path = os.path.join(dest_path, LEAN_INSTALL, "bin", lean_executable_name())
     note("Please set your VSCode lean.executablePath to `{0}`".format(lean_path))
     success("Lean Installed")
+    clean(dest_path)
 
 def main(args):
     # Setup Platform specific variables.
     detect_platform()
 
     if args['install']:
-        install(args['path'])
+        install(args['PATH'])
     elif args['sync']:
-        print("should implement sync")
+        install(args['PATH'])
     else:
         exit(1)
 
