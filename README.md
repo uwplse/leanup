@@ -6,6 +6,10 @@ This is the first version of the class we are offering written in Lean,
 and the goal of this tool is to make upgrade as seemless as possible for
 you over the course of the quarter.
 
+~Note: This is the first iteration of the course with Lean, and this auto-updating software is
+a work in progress, if you find issues please report them to us so we can try to improve the
+user experince.~
+
 ### Setup
 Getting set _up_ with _Lean_ takes just a few simple steps.
 
