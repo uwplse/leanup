@@ -26,7 +26,7 @@ init()
 
 VERSION = "0.0.1"
 
-WINDOWS_URL  = "https://ci.appveyor.com/api/projects/jroesch/lean/artifacts/build/lean-nightly-windows.zip?branch=master"
+WINDOWS_URL  = "https://ci.appveyor.com/api/projects/jroesch/lean/artifacts/build/lean-nightly-windows.zip?branch=cse-505"
 LINUX_URL    = "https://github.com/uwplse/lean-nightly/blob/gh-pages/build/lean-nightly-linux.tar.gz?raw=true"
 MAC_URL      = "https://github.com/uwplse/lean-nightly/blob/gh-pages/build/lean-nightly-darwin.zip?raw=true"
 
