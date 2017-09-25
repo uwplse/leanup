@@ -30,9 +30,9 @@ Then setup the tool (you should only do this once):
 
 ```bash
 pip install pipenv
+cd leanup
 pipenv install
 pipenv shell
-cd leanup
 ```
 
 You should now be able to run:
