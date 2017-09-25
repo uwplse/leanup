@@ -6,9 +6,9 @@ This is the first version of the class we are offering written in Lean,
 and the goal of this tool is to make upgrade as seemless as possible for
 you over the course of the quarter.
 
-~Note: This is the first iteration of the course with Lean, and this auto-updating software is
+_Note: This is the first iteration of the course with Lean, and this auto-updating software is
 a work in progress, if you find issues please report them to us so we can try to improve the
-user experince.~
+user experince._
 
 ### Setup
 Getting set _up_ with _Lean_ takes just a few simple steps.
@@ -51,8 +51,8 @@ When you are all done you should be able to open the file in `test/example.lean`
 
 ![All Done!](/images/all_done.png)
 
-Overall this process should take no more then a few minutes, I tried it on each platform during
-the summer, drop by the Slack channel `#505-au17` for questions and or help.
+Overall this process should take no more then a few minutes. I've done my best to test it on the major
+platforms, if you have trouble please drop by the Slack channel `#505-au17` for questions/help.
 
 ### Use
 
