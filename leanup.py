@@ -60,13 +60,13 @@ def detect_platform():
         unarchive = unzip
     elif sys == "Linux":
         LEAN_DL_URL = LINUX_URL
-        unarhcive = untar
+        unarchive = untar
     else:
         print("unknown platform: {0}".format(sys))
         exit(0)
 
 def unpack(zip, output):
-    call(["unzip", zip])
+    unarchive(zip)
     nightly = glob.glob("lean-nightly*")
     call(["mv", "-f", nightly[0], LEAN_INSTALL])
 
