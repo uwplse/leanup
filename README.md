@@ -3,7 +3,7 @@
 This tool is intended to help students install & update Lean for CSE 505.
 
 This is the first version of the class we are offering written in Lean,
-and the goal of this tool is to make upgrade as seemless as possible for
+and the goal of this tool is to make upgrade as seamless as possible for
 you over the course of the quarter.
 
 _Note: This is the first iteration of the course with Lean, and this auto-updating software is
