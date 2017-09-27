@@ -26,12 +26,12 @@ First clone this tool on to your computer:
 git clone https://github.com/uwplse/leanup
 ```
 
-Then setup the tool (you should only do this once):
+Then setup the tool (you should only do this once: *please substitute `3.XX` for your Python 3 version*).
 
 ```bash
 pip install pipenv
 cd leanup
-pipenv install
+pipenv --python 3.XX install
 pipenv shell
 ```
 
