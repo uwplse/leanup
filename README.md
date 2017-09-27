@@ -49,7 +49,19 @@ should open VSCode and install the plugin.
 ![Post Install](/images/post_install.png)
 
 Now copy the path provided to you by the tool since we will need it for VSCode.
-First open the `User Settings` window of VSCode (`cmd-,` or `ctrl-,` depending on platform),
+
+First we need to install the Lean Extension for VSCode, open the command palette (`cmd-shift-p` or `ctrl-shift-p`) and select `Extensions: Install Extensions`.
+
+You should be presented with a panel in the gutter, where you can type Lean, and click install.
+
+![Extension Install](images/ext_window.png)
+
+After installing the extension you should see the Lean extension listed as in the below image, with the
+reload button in blue.
+
+![Extension Installed](images/lean_extension_installed.png)
+
+Now open `User Settings` window of VSCode (`cmd-,` or `ctrl-,` depending on platform),
 and modify the `lean.executablePath` to point to the executable provided by `leanup`.
 
 ![User Settings](/images/settings.png)
