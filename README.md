@@ -75,4 +75,5 @@ platforms, if you have trouble please drop by the Slack channel `#505-au17` for 
 
 ### Use
 
-`leanup.py` has a few features ...
+`leanup.py` has a one feature right now updating the Lean executables used by the class you can use `./leanup install`
+to fetch a version, and `./leanup sync` to pull the latest version of the executable.
