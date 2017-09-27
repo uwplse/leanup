@@ -41,6 +41,11 @@ You should now be able to run:
 ./leanup.py install
 ```
 
+Next install the [Lean
+mode](https://marketplace.visualstudio.com/items?itemName=jroesch.lean) for
+VSCode.  When you click on the green "Install" button on that page, it
+should open VSCode and install the plugin.
+
 ![Post Install](/images/post_install.png)
 
 Now copy the path provided to you by the tool since we will need it for VSCode.
