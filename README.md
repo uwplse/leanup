@@ -18,7 +18,7 @@ In order to run `leanup.py` you need a few components:
 - [Git](https://git-scm.com/)
 - Python 3 (with `pip`), it should be installed on most Linux distributions,
   can easily be installed on macOS with [homebrew](https://brew.sh/), and Windows instructions
-  are [here](docs/windows_setup.md).
+  are [here](doc/windows_setup.md).
 - [VSCode](https://code.visualstudio.com/)
 - [GMP](https://gmplib.org/) (should be installed on MSYS2 or Linux, can be installed with Homebrew)
 
