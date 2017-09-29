@@ -10,7 +10,7 @@ _Note: This is the first iteration of the course with Lean, and this auto-updati
 a work in progress, if you find issues please report them to us so we can try to improve the
 user experince._
 
-### Setup
+## Setup
 Getting set _up_ with _Lean_ takes just a few simple steps.
 
 In order to run `leanup.py` you need a few components:
@@ -74,7 +74,16 @@ When you are all done you should be able to open the file in `test/example.lean`
 Overall this process should take no more then a few minutes. I've done my best to test it on the major
 platforms, if you have trouble please drop by the Slack channel `#505-au17` for questions/help.
 
-### Use
+### Common Installation issues:
+
+- You receive a dynamic linking error due to missing a dependency such as `libgmp`.
+- You receive a permission denied error due to installing Python in a directory you don't
+  have permissions in, use `sudo your_command` instead.
+- You did not reload VSCode after making changes to the set of extensions and they extension
+  does not start, open Command Palette and run the `Reload Window` command or click on the blue
+  button next to installed addons.
+
+## Use
 
 `leanup.py` has a one feature right now updating the Lean executables used by the class you can use `./leanup install`
 to fetch a version, and `./leanup sync` to pull the latest version of the executable.
