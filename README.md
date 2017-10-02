@@ -42,31 +42,40 @@ You should now be able to run:
 ./leanup.py install
 ```
 
-Next install the [Lean
-mode](https://marketplace.visualstudio.com/items?itemName=jroesch.lean) for
-VSCode.  When you click on the green "Install" button on that page, it
-should open VSCode and install the plugin.
-
+You should be looking at something like this:
 ![Post Install](/images/post_install.png)
+Make a note of the `lean.executablePath`; you'll need it in a second.
 
-Now copy the path provided to you by the tool since we will need it for VSCode.
+### Install Lean mode for VSCode
+You can either:
 
-First we need to install the Lean Extension for VSCode, open the command palette (`cmd-shift-p` or `ctrl-shift-p`) and select `Extensions: Install Extensions`.
-
-You should be presented with a panel in the gutter, where you can type Lean, and click install.
+* Install from the VSCode website: [Lean mode](https://marketplace.visualstudio.com/items?itemName=jroesch.lean). When you click on the green "Install" button on that page, it should open VSCode and install the plugin.
+* Install from the editor: open the command palette (`cmd-shift-p` or `ctrl-shift-p`) and select `Extensions: Install Extensions`. You should be presented with a panel in the gutter, where you can type Lean, and click install.
 
 ![Extension Install](images/ext_window.png)
 
-After installing the extension you should see the Lean extension listed as in the below image, with the
-reload button in blue.
+You can check that the extension has been successfully installed by opening up the Extensions gutter (`cmd-shift-x` or `ctrl-shift-x`) and verifying that "lean" is in the list of installed extensions:
 
 ![Extension Installed](images/lean_extension_installed.png)
 
-Now open `User Settings` window of VSCode (`cmd-,` or `ctrl-,` depending on platform),
-and modify the `lean.executablePath` to point to the executable provided by `leanup`.
+Finally, you'll need to reload the VSCode window to get everything working. Open the Command Palette (`cmd-shift-p` or `ctrl-shift-p`) and select "Reload Window".
 
+### Point the Lean mode extension to your Lean installation
+
+Open User Settings by either pressing `cmd-,`/`ctrl-,` or by searching through the Command Palette.
+
+Now copy the `lean.executablePath` path provided to you by `./leanup.py install` and create a new line in the editor on the right-hand side: 
+
+```
+"lean.executablePath": "/blah/blah/blah/leanup/lean_install/bin/lean",
+```
+
+It should look something like this:
 ![User Settings](/images/settings.png)
 
+Hovering over the line should produce a tooltip indicating that VSCode is aware of its meaning to the Lean extension. Save the settings file and Reload Window once more for good measure.
+
+### Test
 When you are all done you should be able to open the file in `test/example.lean` and see some diagnostics.
 
 ![All Done!](/images/all_done.png)
@@ -79,7 +88,7 @@ platforms, if you have trouble please drop by the Slack channel `#505-au17` for 
 - You receive a dynamic linking error due to missing a dependency such as `libgmp`.
 - You receive a permission denied error due to installing Python in a directory you don't
   have permissions in, use `sudo your_command` instead.
-- You did not reload VSCode after making changes to the set of extensions and they extension
+- You did not reload VSCode after making changes to the set of extensions and the extension
   does not start, open Command Palette and run the `Reload Window` command or click on the blue
   button next to installed addons.
 
